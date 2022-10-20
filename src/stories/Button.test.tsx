@@ -11,10 +11,12 @@ test('should render button with default props', () => {
 })
 
 test('should invoke click handler', () => {
+  // onClick is a mock function that we can use to check if it was called
   const onClick = jest.fn()
   render(<Button label='Hello' onClick={onClick} />)
 
   userEvent.click(screen.getByRole('button'))
 
+  // check if the mock function was called
   expect(onClick).toHaveBeenCalledTimes(1)
 })
